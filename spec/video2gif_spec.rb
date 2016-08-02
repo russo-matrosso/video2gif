@@ -25,7 +25,16 @@ describe Video2gif do
     before {file.create_screenshots}
     
     it 'should create screenshots in tmp folder' do
-      expect(File.exist?('tmp/screenshot_001.png'))
+      expect(File.exist?('tmp/screenshot_001.jpg'))
+    end
+  end
+
+  describe '#create_gif' do
+    before {file.create_screenshots}
+    before {file.create_gif}
+
+    it 'should create a gif file in tmp folder' do
+      expect(File.exist?('terminator.gif')).to eq true
     end
   end
 end
